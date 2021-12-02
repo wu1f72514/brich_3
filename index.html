@@ -1,12 +1,13 @@
 <template id="user-form">
   <div>
+    AAAAAAAAAAAAAA
     <input
       class="todo-input"
       type="text"
       placeholder="Username"
       v-model="userName"
     />
-    <user-info :username='userName'></user-info>
+    <user-info :username="userName"></user-info>
   </div>
 </template>
 
@@ -25,8 +26,8 @@
 </template>
 
 <template id="todo-list">
-	<ul class="tasks">
-		<li
+  <ul class="tasks">
+    <li
       v-bind:key="todo.id"
       v-for="todo in todos"
       :class="{completed: todo.completed}"
@@ -36,7 +37,7 @@
     >
       {{todo.task}}
     </li>
-	</ul>
+  </ul>
 </template>
 
 <template id="todo-app">
@@ -47,12 +48,9 @@
 </template>
 
 <div class="container">
-	<h1>Todo List</h1>
-	<div id="app">
+  <h1>Todo List</h1>
+  <div id="app">
     <user-form></user-form>
     <todo-app></todo-app>
   </div>
 </div>
-
-
-
