@@ -1,0 +1,58 @@
+<template id="user-form">
+  <div>
+    <input
+      class="todo-input"
+      type="text"
+      placeholder="Username"
+      v-model="userName"
+    />
+    <user-info :username='userName'></user-info>
+  </div>
+</template>
+
+<template id="user-info">
+  <h3>User: {{ username }}</h3>
+</template>
+
+<template id="input-add-todo">
+  <input
+    class="todo-input"
+    type="text"
+    placeholder="Enter a new Task"
+    v-model="task"
+    @keyup.enter="addTodo"
+  />
+</template>
+
+<template id="todo-list">
+	<ul class="tasks">
+		<li
+      v-bind:key="todo.id"
+      v-for="todo in todos"
+      :class="{completed: todo.completed}"
+      class="task"
+      @click="toggleTodo(todo.id)"
+      @dblclick="deleteTodo(todo.id)"
+    >
+      {{todo.task}}
+    </li>
+	</ul>
+</template>
+
+<template id="todo-app">
+  <div>
+    <input-add-todo></input-add-todo>
+    <todo-list :todos="todos"></todo-list>
+  </div>
+</template>
+
+<div class="container">
+	<h1>Todo List</h1>
+	<div id="app">
+    <user-form></user-form>
+    <todo-app></todo-app>
+  </div>
+</div>
+
+
+
